@@ -23,6 +23,11 @@
 # misc
 .DS_Store
 *.pem
+.vscode/
+.idea/
+*.log
+*.md
+!README.md
 
 # debug
 npm-debug.log*
@@ -35,6 +40,9 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# turborepo
+.turbo
 
 # typescript
 *.tsbuildinfo

@@ -1,26 +1,84 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --canvas: #02030b;
+  --ink: #f7f9ff;
+  --ink-soft: #dfe8ff;
+  --steel: #00f5ff;
+  --steel-soft: #8a7bff;
+  --mist: #120a24;
+  --paper: #0a0a18;
+  --accent: #7c3bff;
+  --accent-soft: #1a1036;
+  --ring: #2d2358;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-background: var(--canvas);
+  --color-foreground: var(--ink);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-body);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  --bg-x: 60%;
+  --bg-y: 75%;
+  background: radial-gradient(
+      circle at 10% 12%,
+      rgba(0, 245, 255, 0.45),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 80% 10%,
+      rgba(124, 59, 255, 0.42),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at var(--bg-x) var(--bg-y),
+      rgba(111, 238, 255, 0.4),
+      transparent 52%
+    ),
+    var(--canvas);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--ink);
+  font-family: var(--font-body), "Segoe UI", sans-serif;
+}
+
+.bg-grid {
+  background-image: radial-gradient(
+      circle at 70% 30%,
+      rgba(0, 245, 255, 0.2),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(124, 59, 255, 0.18),
+      transparent 50%
+    );
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.display-font {
+  font-family: var(--font-display), "Georgia", serif;
+}
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  border-radius: 999px;
+  background: rgba(247, 249, 255, 0.95);
+  box-shadow: 0 0 36px rgba(0, 245, 255, 0.7),
+    0 0 72px rgba(124, 59, 255, 0.55),
+    0 0 96px rgba(182, 255, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 50;
 }
